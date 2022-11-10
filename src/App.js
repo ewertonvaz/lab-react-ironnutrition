@@ -34,7 +34,7 @@ function App() {
           allFoods.length > 0 ?
             allFoods.map( (food, key) => {
               return (
-                <FoodBox key={key} food={food} allFoods={allFoods} setFoods={setFoods} />
+                <FoodBox key={"food-" + key} food={food} allFoods={allFoods} setFoods={setFoods} />
               )
             }) 
           : 
