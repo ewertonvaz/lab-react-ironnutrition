@@ -17,10 +17,9 @@ function App() {
 
   return (
     <div className="App">
-      { visible ?
+      { visible === true && ( //Usando short circuit
         <AddFoodForm allFoods={allFoods} setFoods={setFoods} />
-        :
-        ""
+        )
       }
 
       <Button type="default" onClick={changeVisible}>{ visible ? "Hide Form" : "Add New Food"}</Button>
