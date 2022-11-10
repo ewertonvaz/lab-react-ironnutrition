@@ -9,6 +9,7 @@ import Search from './components/Search';
 function App() {
   const [ allFoods, setFoods ] = useState( foods );
   const [ visible, setVisible] = useState( false );
+  const [ search, setSearch] = useState("");
 
   function changeVisible(){
     setVisible(!visible);
@@ -25,14 +26,16 @@ function App() {
 
       <Button type="default" onClick={changeVisible}>{ visible ? "Hide Form" : "Add New Food"}</Button>
 
-      <Search allFoods={allFoods} setFoods={setFoods} />
+      <Search search={search} setSearch={setSearch} />
 
       <Divider>Food List</Divider>
 
       <Row style={{ width: '100%', justifyContent: 'center' }}>
         {
           allFoods.length > 0 ?
-            allFoods.map( (food, key) => {
+            allFoods
+            .filter( food => food.name.toLowerCase().includes(search.toLowerCase()) )
+            .map( (food, key) => {
               return (
                 <FoodBox key={"food-" + key} food={food} allFoods={allFoods} setFoods={setFoods} />
               )

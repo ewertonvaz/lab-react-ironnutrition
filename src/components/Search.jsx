@@ -1,21 +1,9 @@
-import { Input, Divider, Button } from 'antd';
-import { useState } from 'react';
+import { Input, Divider } from 'antd';
 
-function Search({allFoods, setFoods}) {
-    const [search, setSearch] = useState("");
-    const [originalFoods] = useState([...allFoods]);
-
+function Search({search, setSearch}) {
     function handleSearch(e){
         e.preventDefault();
         setSearch(e.target.value);
-        let filteredFoods = [...originalFoods].filter( food => food.name.toLowerCase().includes(e.target.value.toLowerCase()) );
-        setFoods(filteredFoods);
-    }
-
-    function cancelSearch(e){
-        e.preventDefault();
-        setFoods(originalFoods);
-        setSearch("");
     }
 
     return (
@@ -25,7 +13,6 @@ function Search({allFoods, setFoods}) {
             <label>Search</label>
             <div style={{display: "flex", flexDirection:"row"}} >
                 <Input value={search} type="text" onChange={handleSearch} />
-                <Button type="primary" onClick={cancelSearch}>Cancel Search</Button>
             </div>
         </>
   );
