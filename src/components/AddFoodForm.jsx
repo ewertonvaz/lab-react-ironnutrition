@@ -1,4 +1,4 @@
-import { Divider, Input } from 'antd';
+import { Divider, Input, Button } from 'antd';
 import { useState } from 'react';
 
 function AddFoodForm({allFoods, setFoods}) {
@@ -42,7 +42,7 @@ function AddFoodForm({allFoods, setFoods}) {
             <label>Servings</label>
             <Input value={form.servings} type="number" name="servings" onChange={handleChange} />
 
-            <button type="submit" onClick={handleSubmit}>Create</button>
+            <Button type="submit" onClick={handleSubmit} style={{marginTop: "16px", marginBottom: "32px"}}>Create</Button>
         </form>
     );
 }

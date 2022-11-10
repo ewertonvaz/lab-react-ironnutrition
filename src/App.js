@@ -17,12 +17,11 @@ function App() {
 
   return (
     <div className="App">
-      <div style={{
-        margin: "18px",
-        display: `${ visible ? "flex" : "none"}`
-      }}>
+      { visible ?
         <AddFoodForm allFoods={allFoods} setFoods={setFoods} />
-      </div>
+        :
+        ""
+      }
 
       <Button type="default" onClick={changeVisible}>{ visible ? "Hide Form" : "Add New Food"}</Button>
 
