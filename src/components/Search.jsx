@@ -8,7 +8,7 @@ function Search({allFoods, setFoods}) {
     function handleSearch(e){
         e.preventDefault();
         setSearch(e.target.value);
-        let filteredFoods = allFoods.filter( food => food.name.toLowerCase().includes(search.toLowerCase()) );
+        let filteredFoods = [...originalFoods].filter( food => food.name.toLowerCase().includes(e.target.value.toLowerCase()) );
         setFoods(filteredFoods);
     }
 
